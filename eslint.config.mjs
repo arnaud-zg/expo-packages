@@ -12,7 +12,11 @@ export default tseslint.config(...base, {
   ignores: ["**/dist/**"],
   languageOptions: {
     parserOptions: {
-      project: ["packages/*/tsconfig.json"],
+      // "tsconfig.json" covers packages whose editor tsconfig directly lists
+      // src files; "tsconfig.lib.json" covers packages (e.g. expo-catalog)
+      // whose tsconfig.json is solution-style (a bare reference, no
+      // `include`) and delegate the real file list to tsconfig.lib.json.
+      project: ["packages/*/tsconfig.json", "packages/*/tsconfig.lib.json"],
       tsconfigRootDir: import.meta.dirname,
     },
   },

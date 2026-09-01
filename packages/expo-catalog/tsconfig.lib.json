@@ -1,0 +1,9 @@
+{
+  "extends": ["@arnaud-zg/configs/tsconfig/base.json"],
+  "compilerOptions": {
+    "outDir": "${configDir}/dist",
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "vitest.config.mts"],
+  "exclude": ["node_modules", "dist"]
+}
