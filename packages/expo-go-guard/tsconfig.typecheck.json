@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "@arnaud-zg/configs/tsconfig/base.json",
+    "@arnaud-zg/configs/tsconfig/react-native.json"
+  ],
+  "compilerOptions": {
+    "noEmit": true,
+    "composite": false,
+    "checkJs": false
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx", "src/__tests__/**"]
+}
