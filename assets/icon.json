@@ -1,0 +1,23 @@
+{
+  "tool": "Icon Maker",
+  "icon": "check-list",
+  "fill": {
+    "type": "radial",
+    "primaryColor": "#3B82F6",
+    "secondaryColor": "#172554",
+    "position": "top",
+    "spread": "80%"
+  },
+  "background": {
+    "radialGlare": false,
+    "noiseTexture": false,
+    "radius": "128px",
+    "strokeSize": "0px"
+  },
+  "glyph": {
+    "color": "#EFF6FF",
+    "size": "352px",
+    "xOffset": "0px",
+    "yOffset": "0px"
+  }
+}
