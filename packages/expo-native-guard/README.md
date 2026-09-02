@@ -1,7 +1,7 @@
-# expo-go-guard
+# expo-native-guard
 
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
-<a href="https://www.npmjs.com/package/expo-go-guard"><img src="https://img.shields.io/npm/v/expo-go-guard.svg" alt="npm version"></a>
+<a href="https://www.npmjs.com/package/expo-native-guard"><img src="https://img.shields.io/npm/v/expo-native-guard.svg" alt="npm version"></a>
 <img src="https://img.shields.io/badge/ESM-Ready-green" alt="ESM Ready">
 
 Expo Go only bundles Expo's own native modules. Any package with its own native binding — Nitro
@@ -12,7 +12,7 @@ package makes that a controlled, visible fallback instead of a crash.
 ## Install
 
 ```bash
-npm install expo-go-guard
+npm install expo-native-guard
 ```
 
 ## `createExpoGoAwareComponent`
@@ -60,9 +60,9 @@ export default function MyView(props: Props) {
 }
 ```
 
-`loadExpoGoAwareModule` and `resolveUnlessExpoGo` are also available from `expo-go-guard/core` — no
-React or `react-native` import, for consumers that only need the branching logic. The full
-`expo-go-guard` barrel (used above) also pulls in `withExpoGoIndicator`, a real component.
+`loadExpoGoAwareModule` and `resolveUnlessExpoGo` are also available from `expo-native-guard/core` —
+no React or `react-native` import, for consumers that only need the branching logic. The full
+`expo-native-guard` barrel (used above) also pulls in `withExpoGoIndicator`, a real component.
 
 ## `withExpoGoIndicator`
 
@@ -98,7 +98,9 @@ sign shared logic hasn't been factored out yet, not a sign this package needs ne
 - No dependency on any UI/styling library beyond `react-native` — `withExpoGoIndicator` uses
   `StyleSheet.create` and nothing else.
 - `expo`, `react`, and `react-native` are peer dependencies, not bundled — a consuming app always
-  supplies its own, avoiding duplicate React instances.
+  supplies its own, avoiding duplicate React instances. Ranges are floors, not pins: `expo >=50.0.0`
+  because that's the first SDK exporting `isRunningInExpoGo`, `react-native >=0.73.0` as its paired
+  minimum.
 - Tests render real `react-native` primitives via `react-native-web` (dev-only, see
   `vitest.config.ts`), not a hand-rolled stub, so `withExpoGoIndicator`'s coverage exercises the
   same component tree shape a consumer would actually get.

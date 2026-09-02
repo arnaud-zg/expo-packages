@@ -1,5 +1,5 @@
 {
-  "name": "expo-go-guard",
+  "name": "expo-native-guard",
   "version": "0.1.0",
   "description": "Resolve or select native-only implementations without crashing in Expo Go — with a visible reminder, shown only in Expo Go, that the native path still needs testing.",
   "keywords": [
@@ -9,14 +9,14 @@
     "native-module",
     "fallback"
   ],
-  "homepage": "https://github.com/arnaud-zg/expo-packages/tree/main/packages/expo-go-guard#readme",
+  "homepage": "https://github.com/arnaud-zg/expo-packages/tree/main/packages/expo-native-guard#readme",
   "bugs": {
     "url": "https://github.com/arnaud-zg/expo-packages/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arnaud-zg/expo-packages.git",
-    "directory": "packages/expo-go-guard"
+    "directory": "packages/expo-native-guard"
   },
   "license": "MIT",
   "author": "Arnaud Zheng <arnaud.zg@gmail.com>",
@@ -62,8 +62,8 @@
     "vitest": "catalog:"
   },
   "peerDependencies": {
-    "expo": "*",
+    "expo": ">=50.0.0",
     "react": "catalog:react",
-    "react-native": "*"
+    "react-native": ">=0.73.0"
   }
 }
