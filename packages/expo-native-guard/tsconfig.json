@@ -1,0 +1,11 @@
+{
+  "files": [],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "*.config.ts", "vitest.setup.ts"],
+  "extends": [
+    "@arnaud-zg/configs/tsconfig/base.json",
+    "@arnaud-zg/configs/tsconfig/react-native.json"
+  ],
+  "compilerOptions": {
+    "types": ["node"]
+  }
+}

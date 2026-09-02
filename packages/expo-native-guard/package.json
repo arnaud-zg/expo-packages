@@ -1,0 +1,69 @@
+{
+  "name": "expo-native-guard",
+  "version": "0.1.0",
+  "description": "Resolve or select native-only implementations without crashing in Expo Go, with a visible reminder, shown only in Expo Go, that the native path still needs testing.",
+  "keywords": [
+    "expo",
+    "expo-go",
+    "react-native",
+    "native-module",
+    "fallback"
+  ],
+  "homepage": "https://github.com/arnaud-zg/expo-packages/tree/main/packages/expo-native-guard#readme",
+  "bugs": {
+    "url": "https://github.com/arnaud-zg/expo-packages/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnaud-zg/expo-packages.git",
+    "directory": "packages/expo-native-guard"
+  },
+  "license": "MIT",
+  "author": "Arnaud Zheng <arnaud.zg@gmail.com>",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./core": "./dist/core.js",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "clean": "git clean -xdf .cache dist node_modules",
+    "format": "prettier --write . --ignore-path ../../.prettierignore --cache --cache-location .cache/.prettiercache",
+    "lint": "eslint --cache --cache-location .cache/.eslintcache",
+    "prepublishOnly": "pnpm run build",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.typecheck.json"
+  },
+  "prettier": "@arnaud-zg/configs/prettier",
+  "devDependencies": {
+    "@arnaud-zg/configs": "catalog:",
+    "@testing-library/jest-dom": "catalog:testing-library",
+    "@testing-library/react": "catalog:testing-library",
+    "@types/node": "catalog:node",
+    "@types/react": "catalog:react",
+    "@vitejs/plugin-react": "catalog:vite",
+    "eslint": "catalog:",
+    "expo": "catalog:expo",
+    "jsdom": "catalog:vite",
+    "prettier": "catalog:",
+    "react": "catalog:react",
+    "react-native": "catalog:expo",
+    "react-native-web": "0.21.2",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "peerDependencies": {
+    "expo": ">=50.0.0",
+    "react": "catalog:react",
+    "react-native": ">=0.73.0"
+  }
+}
