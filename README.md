@@ -47,6 +47,13 @@ npm install expo-native-guard
 See each package's own README for usage: [`expo-pnpm-catalog`](./packages/expo-pnpm-catalog#readme),
 [`expo-native-guard`](./packages/expo-native-guard#readme).
 
+## 📚 Documentation
+
+- 🚀 **[Tutorial](./docs/tutorial.md)**: install and wire up each package, step by step.
+- 🛠️ **[How-to guides](./docs/how-to.md)**: task recipes.
+- 📖 **[Reference](./docs/reference.md)**: API and package layout.
+- 💡 **[Explanation](./docs/explanation.md)**: design rationale.
+
 ## 🤝 Contributing
 
 ```sh
