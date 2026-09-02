@@ -14,7 +14,7 @@ export function findWorkspaceRoot(startDir: string): string {
     const parent = path.dirname(dir);
     if (parent === dir) {
       throw new Error(
-        `Could not find a pnpm-workspace.yaml above ${startDir} — expo-catalog must be run inside a pnpm workspace.`,
+        `Could not find a pnpm-workspace.yaml above ${startDir} — expo-pnpm-catalog must be run inside a pnpm workspace.`,
       );
     }
     dir = parent;

@@ -20,7 +20,7 @@ function resolvePaths(appDirOption: string | undefined): CatalogPaths {
 }
 
 const program = new Command()
-  .name("expo-catalog")
+  .name("expo-pnpm-catalog")
   .description("Deterministic Expo SDK pnpm-catalog checks and sync");
 
 program

@@ -10,7 +10,7 @@ import { aWorkspaceYaml } from "./builders";
 let tmpDir: string;
 
 beforeEach(() => {
-  tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "expo-catalog-workspace-test-"));
+  tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "expo-pnpm-catalog-workspace-test-"));
 });
 
 afterEach(() => {
@@ -75,7 +75,7 @@ describe("reading and updating catalog versions", () => {
       const content = [
         "catalogs:",
         "  expo:",
-        "    # managed by expo-catalog",
+        "    # managed by expo-pnpm-catalog",
         '    expo-camera: "~17.0.8"',
       ].join("\n");
       const filePath = path.join(tmpDir, "pnpm-workspace.yaml");
@@ -84,7 +84,7 @@ describe("reading and updating catalog versions", () => {
       CatalogWorkspace.load(filePath).writeVersion("expo-camera", "~17.0.10").save();
 
       const updated = fs.readFileSync(filePath, "utf-8");
-      expect(updated).toContain("# managed by expo-catalog");
+      expect(updated).toContain("# managed by expo-pnpm-catalog");
       expect(updated).toContain('"~17.0.10"');
       expect(updated).not.toContain('"~17.0.8"');
     });

@@ -8,7 +8,7 @@ import { findWorkspaceRoot } from "../findWorkspaceRoot";
 let tmpDir: string;
 
 beforeEach(() => {
-  tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "expo-catalog-root-test-"));
+  tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "expo-pnpm-catalog-root-test-"));
 });
 
 afterEach(() => {
@@ -36,7 +36,7 @@ describe("locating the pnpm workspace root", () => {
 
   describe("given no pnpm-workspace.yaml exists anywhere above the start directory", () => {
     it("when searched, then it throws", () => {
-      const isolatedDir = fs.mkdtempSync(path.join(os.tmpdir(), "expo-catalog-no-workspace-"));
+      const isolatedDir = fs.mkdtempSync(path.join(os.tmpdir(), "expo-pnpm-catalog-no-workspace-"));
 
       expect(() => findWorkspaceRoot(isolatedDir)).toThrow(/pnpm-workspace\.yaml/);
 

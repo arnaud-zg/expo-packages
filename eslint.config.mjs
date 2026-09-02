@@ -13,7 +13,7 @@ export default tseslint.config(...base, {
   languageOptions: {
     parserOptions: {
       // "tsconfig.json" covers packages whose editor tsconfig directly lists
-      // src files; "tsconfig.lib.json" covers packages (e.g. expo-catalog)
+      // src files; "tsconfig.lib.json" covers packages (e.g. expo-pnpm-catalog)
       // whose tsconfig.json is solution-style (a bare reference, no
       // `include`) and delegate the real file list to tsconfig.lib.json.
       project: ["packages/*/tsconfig.json", "packages/*/tsconfig.lib.json"],

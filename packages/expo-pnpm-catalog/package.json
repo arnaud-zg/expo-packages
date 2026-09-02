@@ -1,5 +1,5 @@
 {
-  "name": "expo-catalog",
+  "name": "expo-pnpm-catalog",
   "version": "0.1.0",
   "description": "Deterministic Expo SDK checks and sync for pnpm catalogs, like expo-doctor for a whole workspace.",
   "keywords": [
@@ -10,14 +10,14 @@
     "expo-doctor",
     "cli"
   ],
-  "homepage": "https://github.com/arnaud-zg/expo-packages/tree/main/packages/expo-catalog#readme",
+  "homepage": "https://github.com/arnaud-zg/expo-packages/tree/main/packages/expo-pnpm-catalog#readme",
   "bugs": {
     "url": "https://github.com/arnaud-zg/expo-packages/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arnaud-zg/expo-packages.git",
-    "directory": "packages/expo-catalog"
+    "directory": "packages/expo-pnpm-catalog"
   },
   "license": "MIT",
   "author": "Arnaud Zheng <arnaud.zg@gmail.com>",
@@ -31,7 +31,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "expo-catalog": "./dist/cli.js"
+    "expo-pnpm-catalog": "./dist/cli.js"
   },
   "files": [
     "dist",

@@ -1,5 +1,5 @@
 /**
- * Test data builders for expo-catalog types.
+ * Test data builders for expo-pnpm-catalog types.
  * Each export is a factory returning a fresh builder to avoid state leakage.
  */
 import { Builder } from "builder-pattern";

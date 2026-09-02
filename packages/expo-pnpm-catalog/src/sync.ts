@@ -1,5 +1,5 @@
 /**
- * expo-catalog sync
+ * expo-pnpm-catalog sync
  *
  * Uses `expo install --fix` (same engine as expo-doctor) to determine the
  * correct dependency versions for the current Expo SDK across the entire

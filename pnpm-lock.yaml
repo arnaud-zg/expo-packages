@@ -149,46 +149,6 @@ importers:
         specifier: 'catalog:'
         version: 4.1.11(@types/node@22.20.1)(jsdom@24.1.3)(vite@8.2.2(@types/node@22.20.1)(jiti@2.6.1)(terser@5.51.2)(yaml@2.9.0))
 
-  packages/expo-catalog:
-    dependencies:
-      chalk:
-        specifier: ^5.6.2
-        version: 5.6.2
-      commander:
-        specifier: ^15.0.0
-        version: 15.0.0
-      js-yaml:
-        specifier: ^4.2.0
-        version: 4.3.2
-      ora:
-        specifier: ^9.4.0
-        version: 9.4.1
-    devDependencies:
-      '@arnaud-zg/configs':
-        specifier: 'catalog:'
-        version: 0.3.0(@commitlint/cli@21.2.2(@types/node@22.20.1)(conventional-commits-parser@7.1.2)(typescript@6.0.3))(@commitlint/config-conventional@21.2.2)(@eslint/js@9.39.5)(@ianvs/prettier-plugin-sort-imports@4.7.1(prettier@3.9.6))(eslint-config-prettier@10.1.8(eslint@9.39.5(jiti@2.6.1)))(eslint@9.39.5(jiti@2.6.1))(lefthook@2.1.12)(prettier-plugin-packagejson@3.0.2(prettier@3.9.6))(prettier@3.9.6)(remark-cli@12.0.1)(remark-preset-lint-recommended@7.0.1)(tsdown@0.21.10(typescript@6.0.3))(typescript-eslint@8.69.0(eslint@9.39.5(jiti@2.6.1))(typescript@6.0.3))(typescript@6.0.3)
-      '@types/js-yaml':
-        specifier: ^4.0.9
-        version: 4.0.9
-      '@types/node':
-        specifier: catalog:node
-        version: 22.20.1
-      builder-pattern:
-        specifier: ^2.2.0
-        version: 2.2.0
-      eslint:
-        specifier: 'catalog:'
-        version: 9.39.5(jiti@2.6.1)
-      prettier:
-        specifier: 'catalog:'
-        version: 3.9.6
-      typescript:
-        specifier: 'catalog:'
-        version: 6.0.3
-      vitest:
-        specifier: 'catalog:'
-        version: 4.1.11(@types/node@22.20.1)(jsdom@24.1.3)(vite@8.2.2(@types/node@22.20.1)(jiti@2.6.1)(terser@5.51.2)(yaml@2.9.0))
-
   packages/expo-native-guard:
     devDependencies:
       '@arnaud-zg/configs':
@@ -230,6 +190,46 @@ importers:
       react-native-web:
         specifier: 0.21.2
         version: 0.21.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      typescript:
+        specifier: 'catalog:'
+        version: 6.0.3
+      vitest:
+        specifier: 'catalog:'
+        version: 4.1.11(@types/node@22.20.1)(jsdom@24.1.3)(vite@8.2.2(@types/node@22.20.1)(jiti@2.6.1)(terser@5.51.2)(yaml@2.9.0))
+
+  packages/expo-pnpm-catalog:
+    dependencies:
+      chalk:
+        specifier: ^5.6.2
+        version: 5.6.2
+      commander:
+        specifier: ^15.0.0
+        version: 15.0.0
+      js-yaml:
+        specifier: ^4.2.0
+        version: 4.3.2
+      ora:
+        specifier: ^9.4.0
+        version: 9.4.1
+    devDependencies:
+      '@arnaud-zg/configs':
+        specifier: 'catalog:'
+        version: 0.3.0(@commitlint/cli@21.2.2(@types/node@22.20.1)(conventional-commits-parser@7.1.2)(typescript@6.0.3))(@commitlint/config-conventional@21.2.2)(@eslint/js@9.39.5)(@ianvs/prettier-plugin-sort-imports@4.7.1(prettier@3.9.6))(eslint-config-prettier@10.1.8(eslint@9.39.5(jiti@2.6.1)))(eslint@9.39.5(jiti@2.6.1))(lefthook@2.1.12)(prettier-plugin-packagejson@3.0.2(prettier@3.9.6))(prettier@3.9.6)(remark-cli@12.0.1)(remark-preset-lint-recommended@7.0.1)(tsdown@0.21.10(typescript@6.0.3))(typescript-eslint@8.69.0(eslint@9.39.5(jiti@2.6.1))(typescript@6.0.3))(typescript@6.0.3)
+      '@types/js-yaml':
+        specifier: ^4.0.9
+        version: 4.0.9
+      '@types/node':
+        specifier: catalog:node
+        version: 22.20.1
+      builder-pattern:
+        specifier: ^2.2.0
+        version: 2.2.0
+      eslint:
+        specifier: 'catalog:'
+        version: 9.39.5(jiti@2.6.1)
+      prettier:
+        specifier: 'catalog:'
+        version: 3.9.6
       typescript:
         specifier: 'catalog:'
         version: 6.0.3

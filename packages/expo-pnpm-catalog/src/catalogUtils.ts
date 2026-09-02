@@ -1,5 +1,5 @@
 /**
- * Shared types, constants, and pure functions used across expo-catalog.
+ * Shared types, constants, and pure functions used across expo-pnpm-catalog.
  */
 import chalk from "chalk";
 

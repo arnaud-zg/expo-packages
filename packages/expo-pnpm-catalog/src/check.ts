@@ -1,5 +1,5 @@
 /**
- * expo-catalog check
+ * expo-pnpm-catalog check
  *
  * Mirrors what `expo-doctor` would see in CI: temporarily resolves all
  * `catalog:*` references to concrete versions — across every workspace
@@ -165,7 +165,7 @@ function printDoctorResult(passed: boolean): void {
   console.info(chalk.red("  ✗ expo-doctor reported issues"));
   console.info(
     chalk.yellow("  → Run ") +
-      chalk.bold("expo-catalog sync") +
+      chalk.bold("expo-pnpm-catalog sync") +
       chalk.yellow(" to fix version drift"),
   );
 }
