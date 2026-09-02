@@ -3,7 +3,7 @@
 // skipped, so this also backfills any tag that was pushed but never got a release.
 
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
@@ -39,7 +39,8 @@ const changelogSection = (changelog, version) => {
 
 const packageDirs = readdirSync(PACKAGES_DIR, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
-  .map((entry) => join(PACKAGES_DIR, entry.name));
+  .map((entry) => join(PACKAGES_DIR, entry.name))
+  .filter((dir) => existsSync(join(dir, "package.json")));
 
 let missingChangelog = 0;
 
@@ -56,9 +57,16 @@ for (const dir of packageDirs) {
     continue;
   }
 
-  const notes = changelogSection(readFileSync(join(dir, "CHANGELOG.md"), "utf8"), pkg.version);
+  const changelogPath = join(dir, "CHANGELOG.md");
+  if (!existsSync(changelogPath)) {
+    console.error(`no CHANGELOG.md in ${dir} for tag ${tag}`);
+    missingChangelog++;
+    continue;
+  }
+
+  const notes = changelogSection(readFileSync(changelogPath, "utf8"), pkg.version);
   if (!notes) {
-    console.error(`no "## ${pkg.version}" section in ${dir}/CHANGELOG.md for tag ${tag}`);
+    console.error(`no "## ${pkg.version}" section in ${changelogPath} for tag ${tag}`);
     missingChangelog++;
     continue;
   }
