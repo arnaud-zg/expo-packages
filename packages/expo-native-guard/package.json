@@ -1,7 +1,7 @@
 {
   "name": "expo-native-guard",
   "version": "0.1.0",
-  "description": "Resolve or select native-only implementations without crashing in Expo Go — with a visible reminder, shown only in Expo Go, that the native path still needs testing.",
+  "description": "Resolve or select native-only implementations without crashing in Expo Go, with a visible reminder, shown only in Expo Go, that the native path still needs testing.",
   "keywords": [
     "expo",
     "expo-go",
