@@ -1,0 +1,71 @@
+{
+  "name": "expo-pnpm-catalog",
+  "version": "0.1.0",
+  "description": "Deterministic Expo SDK checks and sync for pnpm catalogs, like expo-doctor for a whole workspace.",
+  "keywords": [
+    "expo",
+    "pnpm",
+    "catalog",
+    "monorepo",
+    "expo-doctor",
+    "cli"
+  ],
+  "homepage": "https://github.com/arnaud-zg/expo-packages/tree/main/packages/expo-pnpm-catalog#readme",
+  "bugs": {
+    "url": "https://github.com/arnaud-zg/expo-packages/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnaud-zg/expo-packages.git",
+    "directory": "packages/expo-pnpm-catalog"
+  },
+  "license": "MIT",
+  "author": "Arnaud Zheng <arnaud.zg@gmail.com>",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "expo-pnpm-catalog": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "git clean -xdf .cache dist node_modules",
+    "format": "prettier --write . --ignore-path ../../.prettierignore --cache --cache-location .cache/.prettiercache",
+    "lint": "eslint --cache --cache-location .cache/.eslintcache",
+    "prepublishOnly": "pnpm build",
+    "start": "node dist/cli.js",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "prettier": "@arnaud-zg/configs/prettier",
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "commander": "^15.0.0",
+    "js-yaml": "^4.2.0",
+    "ora": "^9.4.0"
+  },
+  "devDependencies": {
+    "@arnaud-zg/configs": "catalog:",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "catalog:node",
+    "builder-pattern": "^2.2.0",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
