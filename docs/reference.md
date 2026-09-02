@@ -12,7 +12,7 @@
 | `expo-pnpm-catalog` | `.`                     | `dist/index.js` | nothing extra (bundles `chalk`, `commander`, `js-yaml`, `ora`) |
 | `expo-pnpm-catalog` | bin `expo-pnpm-catalog` | `dist/cli.js`   | same                                                           |
 
-`expo`, `react`, and `react-native` are peer dependencies of `expo-native-guard`, not bundled — a
+`expo`, `react`, and `react-native` are peer dependencies of `expo-native-guard`, not bundled: a
 consuming app always supplies its own, avoiding duplicate React instances. Ranges are floors, not
 pins: `expo` requires `>=50.0.0`, the first SDK exporting `isRunningInExpoGo`; `react-native`
 requires its paired minimum, `>=0.73.0`.
@@ -39,7 +39,7 @@ imports, see
 function loadExpoGoAwareModule<T>(loaders: { native: () => T; expoGo: () => T }): T;
 ```
 
-The lower-level primitive `createExpoGoAwareComponent` is built on — picks between two loaders for
+The lower-level primitive `createExpoGoAwareComponent` is built on: picks between two loaders for
 any value, not just a component. Also exported from `expo-native-guard/core`.
 
 ### `resolveUnlessExpoGo`
@@ -65,7 +65,7 @@ function withExpoGoIndicator<P extends object>(
 Wraps a component with a visible reminder that it's a stand-in: a dotted red border and a
 `<name> · Expo Go` badge, built from plain `react-native` `View`/`Text`/`StyleSheet`, no other
 dependency. `createExpoGoAwareComponent` applies this automatically; only needed directly when
-composing `loadExpoGoAwareModule` by hand. Not exported from `expo-native-guard/core` — it renders a
+composing `loadExpoGoAwareModule` by hand. Not exported from `expo-native-guard/core`: it renders a
 real component, so it needs `react-native`.
 
 ## `expo-pnpm-catalog` API
@@ -113,7 +113,7 @@ function runSync(paths: CatalogPaths, options: SyncOptions): Promise<void>;
   always returns `true` without running it).
 - `runSync`: writes to `pnpm-workspace.yaml` and runs `pnpm install` unless `dryRun: true`.
 - Packages under `expo.install.exclude` in the Expo app's `package.json` are skipped by `runSync`,
-  matching `expo install --fix`'s own exclusion behavior — see
+  matching `expo install --fix`'s own exclusion behavior. See
   [How-to § Exclude a package from sync](./how-to.md#exclude-a-package-from-sync).
 
 ### How workspace packages are discovered

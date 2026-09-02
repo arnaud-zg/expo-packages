@@ -5,42 +5,41 @@
 
 ## Why two unrelated packages share one repo
 
-Both are small, focused tools for Expo monorepos with no shared runtime between them — installing
-one never pulls in the other, and each publishes and versions independently. A monorepo buys one set
-of dev tooling (lint, format, release process, CI) instead of duplicating it per package; nothing
-about either package's own code depends on the other existing.
+Both are small, focused tools for Expo monorepos with no shared runtime between them: installing one
+never pulls in the other, and each publishes and versions independently. A monorepo buys one set of
+dev tooling (lint, format, release process, CI) instead of duplicating it per package; nothing about
+either package's own code depends on the other existing.
 
 ## Why the loaders must be `require()` calls, not static imports
 
 Bundlers (Metro included) evaluate top-level static imports eagerly, regardless of which branch of
 code actually runs. A native-only module doesn't resolve inside Expo Go, so a static
 `import { CameraView } from "./CameraView"` would throw at bundle-evaluation time, before
-`isRunningInExpoGo()` is ever checked — the crash `expo-native-guard` exists to prevent. A
+`isRunningInExpoGo()` is ever checked: the crash `expo-native-guard` exists to prevent. A
 `require()` call inside a function body only executes, and only resolves its module, once that
 branch actually runs.
 
 ## Why `expo-native-guard/core` has no React import
 
-`loadExpoGoAwareModule` and `resolveUnlessExpoGo` are pure branching logic — they don't touch
-`react` or `react-native`. Splitting them into their own subpath lets a caller that only needs the
-branching primitive (a native module lookup, not a component) use it without pulling in a React shim
-for nothing. The main `expo-native-guard` barrel re-exports both, plus `createExpoGoAwareComponent`
-and `withExpoGoIndicator`, which do render real components and so do need `react`/`react-native`.
+`loadExpoGoAwareModule` and `resolveUnlessExpoGo` are pure branching logic: they don't touch `react`
+or `react-native`. Splitting them into their own subpath lets a caller that only needs the branching
+primitive (a native module lookup, not a component) use it without pulling in a React shim for
+nothing. The main `expo-native-guard` barrel re-exports both, plus `createExpoGoAwareComponent` and
+`withExpoGoIndicator`, which do render real components and so do need `react`/`react-native`.
 
 ## Why the Expo Go fallback gets a visible indicator, not just a passing test
 
-A unit test that mocks `isRunningInExpoGo()` proves each branch's own logic in isolation — it
-doesn't prove that what's currently on screen, in a real Expo Go session, still matches the native
-branch a reviewer or QA pass exercised separately (or vice versa). `withExpoGoIndicator` is a
-runtime nudge for exactly that gap: it only ever renders when the app is actually running in Expo
-Go, never in a dev client or a production build. Seeing the badge is the signal "you're looking at
-the fallback path — the native path is separate code and still needs its own pass before shipping."
-It doesn't replace testing either path; both loaders still need their own coverage, same as any
-other branch.
+A unit test that mocks `isRunningInExpoGo()` proves each branch's own logic in isolation. It doesn't
+prove that what's currently on screen, in a real Expo Go session, still matches the native branch a
+reviewer or QA pass exercised separately (or vice versa). `withExpoGoIndicator` is a runtime nudge
+for exactly that gap: it only ever renders when the app is actually running in Expo Go, never in a
+dev client or a production build. Seeing the badge is the signal "you're looking at the fallback
+path: the native path is separate code and still needs its own pass before shipping." It doesn't
+replace testing either path; both loaders still need their own coverage, same as any other branch.
 
 ## Why the implementation layer stays thin
 
-Everything native-vs-Expo-Go specific belongs in the two loaders — the permission API shape, how a
+Everything native-vs-Expo-Go specific belongs in the two loaders: the permission API shape, how a
 photo gets captured, how a native module is resolved. Anything that doesn't depend on which
 environment is running belongs outside `expo-native-guard`, in whatever shared logic both loaders
 can call into. If a native and an Expo Go implementation of the same feature start looking like two
@@ -52,7 +51,7 @@ yet, not a sign this package needs new options.
 `expo-doctor` reads a single `package.json`'s dependency versions; a pnpm catalog reference
 (`catalog:expo`) isn't a version it understands. Resolving only the Expo app's own manifest would
 miss drift in a shared package elsewhere in the workspace (a UI kit, a shared hooks package) that
-also depends on the same Expo-managed package through the same catalog — `expo-doctor` would pass
+also depends on the same Expo-managed package through the same catalog: `expo-doctor` would pass
 locally while that sibling package quietly drifts. `WorkspaceCatalogExpoScanner` scans every
 top-level workspace directory for other `package.json` files referencing the same catalog entries,
 so `check`'s pass/fail reflects the whole workspace's dependency surface, not just one app's.
@@ -80,7 +79,7 @@ original file comes back even if the process is interrupted mid-run, not just on
 `js-yaml`, mutating the object, and re-serializing it would re-flow the whole document through the
 library's own formatting rules, dropping comments and reordering keys in the process.
 `updateVersionInYaml` instead matches each changed package's line by regex and replaces only the
-version portion, leaving everything else in the file — comments included — byte-for-byte unchanged.
+version portion, leaving everything else in the file, comments included, byte-for-byte unchanged.
 `js-yaml` is still used to _read_ the file (parsing structure needs a real parser); only the write
 path avoids it.
 
