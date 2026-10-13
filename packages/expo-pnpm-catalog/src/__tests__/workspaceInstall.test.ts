@@ -13,12 +13,15 @@ const recordingRunner = () => {
 
 describe("installing the workspace after a sync", () => {
   describe("given sync just wrote new versions into the catalog", () => {
-    it("when the workspace installs, then the lockfile may follow even where CI freezes it", () => {
+    it("when the workspace installs, then the lockfile is resolved first and the install stays frozen", () => {
       const { commands, run } = recordingRunner();
 
       installWorkspace("/repo", run);
 
-      expect(commands).toEqual([{ command: "pnpm install --no-frozen-lockfile", cwd: "/repo" }]);
+      expect(commands).toEqual([
+        { command: "pnpm install --lockfile-only", cwd: "/repo" },
+        { command: "pnpm install --frozen-lockfile", cwd: "/repo" },
+      ]);
     });
   });
 });
