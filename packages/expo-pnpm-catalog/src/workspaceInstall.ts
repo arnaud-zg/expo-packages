@@ -6,7 +6,8 @@ const runInherited: RunCommand = (command, cwd) => {
   execSync(command, { cwd, stdio: "inherit" });
 };
 
-// Sync changes the catalog on purpose, so the lockfile has to follow even where CI freezes it.
+// A plain install in CI can't change the lockfile, so resolve it alone, then install frozen.
 export function installWorkspace(rootDir: string, run: RunCommand = runInherited): void {
-  run("pnpm install --no-frozen-lockfile", rootDir);
+  run("pnpm install --lockfile-only", rootDir);
+  run("pnpm install --frozen-lockfile", rootDir);
 }
