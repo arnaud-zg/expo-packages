@@ -87,7 +87,7 @@ npx expo-pnpm-catalog check --app-dir apps/expo --dry-run
 
 Runs `expo install --fix` against the resolved manifest, then writes whatever it changes back into
 the matching `catalogs.*` section of `pnpm-workspace.yaml` (comments and formatting preserved) and
-runs `pnpm install`:
+runs `pnpm install --no-frozen-lockfile`, so it also works in CI, where pnpm freezes the lockfile:
 
 ```sh
 npx expo-pnpm-catalog sync --app-dir apps/expo

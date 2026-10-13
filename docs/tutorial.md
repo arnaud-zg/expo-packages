@@ -116,7 +116,7 @@ pnpm catalog:sync
 
 Runs `expo install --fix` to compute the versions the current Expo SDK actually wants, shows a
 from/to table, and, after you confirm, writes them back into `pnpm-workspace.yaml`'s matching
-`catalogs.*` section and runs `pnpm install`.
+`catalogs.*` section and runs `pnpm install --no-frozen-lockfile`.
 
 Done. Re-run `catalog:check` to confirm it's clean. For `--dry-run`, `-y`/`--yes`, excluding a
 package, or the programmatic API, see

@@ -111,7 +111,8 @@ function runSync(paths: CatalogPaths, options: SyncOptions): Promise<void>;
   reaches the filesystem root without finding one.
 - `runCheck`: returns `true` if `expo-doctor` passed against the resolved manifest (`dryRun: true`
   always returns `true` without running it).
-- `runSync`: writes to `pnpm-workspace.yaml` and runs `pnpm install` unless `dryRun: true`.
+- `runSync`: writes to `pnpm-workspace.yaml` and runs `pnpm install --no-frozen-lockfile` unless
+  `dryRun: true`.
 - Packages under `expo.install.exclude` in the Expo app's `package.json` are skipped by `runSync`,
   matching `expo install --fix`'s own exclusion behavior. See
   [How-to § Exclude a package from sync](./how-to.md#exclude-a-package-from-sync).
