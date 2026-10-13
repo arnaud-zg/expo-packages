@@ -19,6 +19,7 @@ import { CatalogWorkspace } from "./catalogWorkspace";
 import { ExpoAppManifest } from "./expoAppManifest";
 import { ExpoManifestResolver } from "./expoManifestResolver";
 import { WorkspaceCatalogExpoScanner } from "./workspaceCatalogExpoScanner";
+import { installWorkspace } from "./workspaceInstall";
 
 export type SyncOptions = {
   dryRun: boolean;
@@ -130,7 +131,7 @@ function applyUpdatesToYaml(workspace: CatalogWorkspace, updates: CatalogUpdate[
 
 function runPnpmInstall(rootDir: string): void {
   console.info(SEPARATOR);
-  execSync("pnpm install", { cwd: rootDir, stdio: "inherit" });
+  installWorkspace(rootDir);
   console.info(SEPARATOR);
 }
 
