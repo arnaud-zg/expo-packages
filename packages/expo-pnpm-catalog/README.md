@@ -62,7 +62,8 @@ Options:
 
 Runs `expo install --fix` against the resolved manifest to compute the versions the current Expo SDK
 actually wants, then writes those versions back into the matching `catalogs.*` section of
-`pnpm-workspace.yaml` (preserving comments and formatting), and runs `pnpm install`.
+`pnpm-workspace.yaml` (preserving comments and formatting), updates the lockfile with
+`pnpm install --lockfile-only`, then installs with `--frozen-lockfile`, so it also works in CI.
 
 ```
 Usage: expo-pnpm-catalog sync [options]
